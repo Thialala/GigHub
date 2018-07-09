@@ -1,9 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-GigHub-34C2D9A1-6C25-469E-A374-F2C5B1FE3C60</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180709124315_SettingConstraintsForGigAndGenres.cs" />
+    <Compile Remove="Data\Migrations\20180709124315_SettingConstraintsForGigAndGenres.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180709124530_SettingConstraintsForGigAndGenres.cs" />
+    <Compile Remove="Data\Migrations\20180709124530_SettingConstraintsForGigAndGenres.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
