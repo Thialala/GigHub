@@ -10,6 +10,14 @@
     <Compile Remove="Data\Migrations\20180709124315_SettingConstraintsForGigAndGenres.Designer.cs" />
     <Compile Remove="Data\Migrations\20180709124530_SettingConstraintsForGigAndGenres.cs" />
     <Compile Remove="Data\Migrations\20180709124530_SettingConstraintsForGigAndGenres.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180710073534_AddForeighKeysPropertiesToGig.cs" />
+    <Compile Remove="Data\Migrations\20180710073534_AddForeighKeysPropertiesToGig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180710073903_AddForeighKeysPropertiesToGig.cs" />
+    <Compile Remove="Data\Migrations\20180710073903_AddForeighKeysPropertiesToGig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180710074417_AddForeighKeysPropertiesToGig.cs" />
+    <Compile Remove="Data\Migrations\20180710074417_AddForeighKeysPropertiesToGig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180710074542_AddForeighKeysPropertiesToGig.cs" />
+    <Compile Remove="Data\Migrations\20180710074542_AddForeighKeysPropertiesToGig.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

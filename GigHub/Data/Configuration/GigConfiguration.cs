@@ -9,6 +9,8 @@ namespace GigHub.Data.Configuration
         public void Configure(EntityTypeBuilder<Gig> builder)
         {
             builder.Property(g => g.Venue).IsRequired().HasMaxLength(255);
+            builder.Property(g => g.ArtistId).IsRequired();
+            builder.Property(g => g.GenreId).IsRequired();
         }
     }
 }
