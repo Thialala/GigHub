@@ -28,6 +28,11 @@ body {
     margin: 15px;
 }
 
+.text-danger {
+    color: #ff4343;
+    font-weight: bold;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
