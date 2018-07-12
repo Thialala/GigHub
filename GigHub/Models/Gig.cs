@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity;
 
 namespace GigHub.Models
 {
@@ -9,7 +8,7 @@ namespace GigHub.Models
 
         public string ArtistId { get; set; }
 
-        public IdentityUser Artist { get; set; }
+        public ApplicationUser Artist { get; set; }
 
         public DateTime DateTime { get; set; }
 

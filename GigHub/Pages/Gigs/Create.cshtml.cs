@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using GigHub.Data;
+﻿using GigHub.Data;
 using GigHub.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
 
 namespace GigHub.Pages.Gigs
 {
@@ -12,12 +12,12 @@ namespace GigHub.Pages.Gigs
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         [BindProperty]
         public GigFormViewModel GigViewModel { get; set; }
 
-        public CreateModel(ApplicationDbContext dbContext, UserManager<IdentityUser> userManager)
+        public CreateModel(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
             _userManager = userManager;

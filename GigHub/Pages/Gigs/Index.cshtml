@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Upcoming Gigs</h2>
+
+<ul>
+    @foreach (var gig in Model.Gigs)
+    {
+        <li>@gig.DateTime - @gig.Artist.Name</li>
+    }
+</ul>
+
