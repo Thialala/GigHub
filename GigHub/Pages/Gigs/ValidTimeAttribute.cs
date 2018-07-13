@@ -14,7 +14,7 @@ namespace GigHub.Pages.Gigs
                 DateTimeStyles.None,
                 out var dateTime);
 
-            return isValid && dateTime > DateTime.Now;
+            return isValid;
         }
     }
 }
