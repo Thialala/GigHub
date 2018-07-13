@@ -1,11 +1,11 @@
-﻿using GigHub.Data;
-using GigHub.Models;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GigHub.Data;
+using GigHub.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace GigHub.Pages.Gigs
 {
@@ -24,6 +24,7 @@ namespace GigHub.Pages.Gigs
         {
             Gigs = await _context.Gigs
                 .Include(g => g.Artist)
+                .Include(g => g.Genre)
                 .Where(g => g.DateTime > DateTime.Now)
                 .ToListAsync();
         }
