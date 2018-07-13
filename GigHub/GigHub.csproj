@@ -18,6 +18,16 @@
     <Compile Remove="Data\Migrations\20180710074417_AddForeighKeysPropertiesToGig.Designer.cs" />
     <Compile Remove="Data\Migrations\20180710074542_AddForeighKeysPropertiesToGig.cs" />
     <Compile Remove="Data\Migrations\20180710074542_AddForeighKeysPropertiesToGig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180713094059_AddAttendance.cs" />
+    <Compile Remove="Data\Migrations\20180713094059_AddAttendance.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180713094510_AddAttendance.cs" />
+    <Compile Remove="Data\Migrations\20180713094510_AddAttendance.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180713101330_AddAttendance.cs" />
+    <Compile Remove="Data\Migrations\20180713101330_AddAttendance.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180713101427_AddAttendance.cs" />
+    <Compile Remove="Data\Migrations\20180713101427_AddAttendance.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180713101604_AddAttendance.cs" />
+    <Compile Remove="Data\Migrations\20180713101604_AddAttendance.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
