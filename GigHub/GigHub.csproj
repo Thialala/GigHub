@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- extends watching group to include *.js files -->
+    <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\Migrations\20180709124315_SettingConstraintsForGigAndGenres.cs" />
     <Compile Remove="Data\Migrations\20180709124315_SettingConstraintsForGigAndGenres.Designer.cs" />
     <Compile Remove="Data\Migrations\20180709124530_SettingConstraintsForGigAndGenres.cs" />
