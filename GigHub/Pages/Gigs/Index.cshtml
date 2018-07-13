@@ -1,5 +1,7 @@
 ﻿@page
+
 @model IndexModel
+
 
 @{
     ViewData["Title"] = "Home Page";
@@ -14,7 +16,9 @@
                 <div class="day">@gig.DateTime.ToString("dd")</div>
             </div>
             <div class="details">
-                <span class="artist">@gig.Artist.Name</span>
+                <span class="artist">
+                    @gig.Artist.Name <button data-following-id="@gig.ArtistId" class="btn btn-link btn-sm js-toggle-following">Follow</button>
+                </span>
                 <span class="genre">@gig.Genre.Name</span>
                 <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going?</button>
             </div>
@@ -28,16 +32,33 @@
             $(".js-toggle-attendance").click(function (e) {
                 var button = $(e.target);
                 $.ajax({
-                        url: "/api/attendances",
-                        contentType: "application/json; charset=utf-8",
+                    url: "/api/attendances",
+                    contentType: "application/json; charset=utf-8",
                     type: "POST",
-                    data: JSON.stringify({ GigId: button.attr("data-gig-id") })
-                    })
+                    data: JSON.stringify({ gigId: button.attr("data-gig-id") })
+                })
                     .done(function () {
                         button
                             .removeClass("btn-default")
                             .addClass("btn-info")
                             .text("Going");
+                    })
+                    .fail(function () {
+                        alert("Something failed!");
+                    });
+            });
+
+            $(".js-toggle-following").click(function (e) {
+                var button = $(e.target);
+                $.ajax({
+                        url: "/api/followings",
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        data: JSON.stringify({ followeeId: button.attr("data-following-id") })
+                    })
+                    .done(function () {
+                        button
+                           .text("Following");
                     })
                     .fail(function () {
                         alert("Something failed!");

@@ -8,32 +8,32 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GigHub.Controllers
 {
-    [Route("api/attendances")]
+    [Route("api/followings")]
     [ApiController]
     [Authorize]
-    public class AttendancesController : ControllerBase
+    public class FollowingsController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public AttendancesController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+        public FollowingsController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
             _userManager = userManager;
         }
 
         [HttpPost]
-        public IActionResult Attend([FromBody] AttendanceDto dto)
+        public IActionResult Follow([FromBody] FollowingDto dto)
         {
-            var userId = _userManager.GetUserId(User);
-            var exists = _dbContext.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId);
+            var followerId = _userManager.GetUserId(User);
+            var exists = _dbContext.Followings.Any(f => f.FollowerId == followerId && f.FolloweeId == dto.FolloweeId);
             if (exists)
             {
                 return BadRequest("The attendance already exists.");
             }
 
-            var attendance = new Attendance { AttendeeId = userId, GigId = dto.GigId };
-            _dbContext.Add(attendance);
+            var following = new Following { FolloweeId = dto.FolloweeId, FollowerId = followerId};
+            _dbContext.Followings.Add(following);
             _dbContext.SaveChanges();
 
             return Ok();
