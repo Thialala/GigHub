@@ -1,0 +1,15 @@
+﻿@page
+@model GigHub.Pages.Artists.FollowingModel
+
+@{
+    ViewData["Title"] = "Following";
+}
+
+<h2>Artists I'm following</h2>
+
+<ul class="voffset4">
+    @foreach (var artist in Model.Artists)
+    {
+        <li>@artist.Name</li>
+    }
+</ul>
