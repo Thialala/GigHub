@@ -1,5 +1,5 @@
 # GigHub
-This is an implementation of the course "Become a Full-stack .NET Developer" by Mosh Hamedani : https://app.pluralsight.com/library/courses/full-stack-dot-net-developer-fundamentals/table-of-contents
+This is an implementation of the course [Become a Full-stack .NET Developer](https://app.pluralsight.com/library/courses/full-stack-dot-net-developer-fundamentals/table-of-contents) by [Mosh Hamedani](https://programmingwithmosh.com) : 
 
 I used :
 1. ASP .NET Core 2.1 with Razor Pages
