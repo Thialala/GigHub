@@ -28,5 +28,7 @@ namespace GigHub.Data
             builder.ApplyConfiguration(new AttendanceConfiguration());
             builder.ApplyConfiguration(new FollowingConfiguration());
         }
+
+        public DbSet<GigHub.Models.ApplicationUser> ApplicationUser { get; set; }
     }
 }

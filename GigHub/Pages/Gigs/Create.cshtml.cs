@@ -1,10 +1,10 @@
-﻿using GigHub.Data;
+﻿using System.Linq;
+using GigHub.Data;
 using GigHub.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
 
 namespace GigHub.Pages.Gigs
 {
@@ -47,7 +47,7 @@ namespace GigHub.Pages.Gigs
             _dbContext.Add(gig);
             _dbContext.SaveChanges();
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Mine");
         }
     }
 }
