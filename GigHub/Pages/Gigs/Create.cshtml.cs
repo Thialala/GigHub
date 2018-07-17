@@ -25,7 +25,12 @@ namespace GigHub.Pages.Gigs
 
         public void OnGet()
         {
-            GigViewModel = new GigFormViewModel { Genres = _dbContext.Genres.ToList() };
+            GigViewModel = new GigFormViewModel
+            {
+                Heading = "Add a gig",
+                Action = PageContext.ActionDescriptor.ViewEnginePath,
+                Genres = _dbContext.Genres.ToList()
+            };
         }
 
         public IActionResult OnPost()
@@ -47,7 +52,7 @@ namespace GigHub.Pages.Gigs
             _dbContext.Add(gig);
             _dbContext.SaveChanges();
 
-            return RedirectToPage("/Mine");
+            return RedirectToPage("./Mine");
         }
     }
 }

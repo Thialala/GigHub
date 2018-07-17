@@ -1,0 +1,54 @@
+﻿@model Gigs.GigFormViewModel
+
+<h2>@Model.Heading</h2>
+
+<p class="alert alert-info">All fields are required.</p>
+
+<form asp-page="@Model.Action" method="post">
+    <div class="form-group">
+        <input asp-for="Id" type="hidden" />
+        <label asp-for="Venue"></label>
+        <div class="row">
+            <div class="col-md-4">
+                <input asp-for="Venue" class="form-control" autofocus />
+                <span asp-validation-for="Venue" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <div class="row">
+            <div class="col-md-4">
+                <input asp-for="Date" class="form-control" placeholder="eg 1 Jan 2018" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Time"></label>
+        <div class="row">
+            <div class="col-md-4">
+                <input asp-for="Time" class="form-control" placeholder="eg 20:00" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Genre"></label>
+        <div class="row">
+            <div class="col-md-4">
+                <select asp-for="Genre" asp-items='new SelectList(Model.Genres, "Id", "Name")' class="form-control">
+                    <option selected value="">-- Please choose Genre --</option>
+                </select>
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>

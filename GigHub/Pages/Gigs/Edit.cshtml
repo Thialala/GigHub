@@ -1,13 +1,13 @@
 ﻿@page
-@model CreateModel
+@model EditModel
+
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <partial name="_GigForm" model="@Model.GigViewModel" />
 
-
 @section scripts{
     @await Html.PartialAsync("_ValidationScriptsPartial")
 }
-

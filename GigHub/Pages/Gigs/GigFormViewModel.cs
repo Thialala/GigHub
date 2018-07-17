@@ -7,6 +7,10 @@ namespace GigHub.Pages.Gigs
 {
     public class GigFormViewModel
     {
+        public int Id { get; set; }
+
+        public string Heading { get; set; }
+
         [Required]
         public string Venue { get; set; }
 
@@ -22,6 +26,8 @@ namespace GigHub.Pages.Gigs
         public byte Genre { get; set; }
 
         public IEnumerable<Genre> Genres { get; set; } = new List<Genre>();
+
+        public string Action { get; set; }
 
         public DateTime GetDateTime() => DateTime.Parse($"{Date} {Time}");
     }
