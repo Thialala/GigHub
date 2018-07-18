@@ -27,7 +27,7 @@ namespace GigHub.Pages.Gigs
         {
             var artistId = _userManager.GetUserId(User);
             Gigs = await _context.Gigs
-                .Where(g => g.ArtistId == artistId && g.DateTime > DateTime.Now)
+                .Where(g => g.ArtistId == artistId && g.DateTime > DateTime.Now && !g.IsCanceled)
                 .Include(g => g.Artist)
                 .Include(g => g.Genre)
                 .ToListAsync();
