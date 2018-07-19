@@ -36,6 +36,30 @@ namespace GigHub.Controllers
             }
 
             gig.IsCanceled = true;
+
+            var notification = new Notification
+            {
+                DateTime = DateTime.Now,
+                Gig = gig,
+                NotificationType = NotificationType.GigCanceled
+            };
+
+            var attendees = _dbContext.Attendances
+                                      .Where(a => a.GigId == gigId)
+                                      .Select(a => a.Attendee)
+                                      .ToList();
+
+            foreach (var attendee in attendees)
+            {
+                var userNotification = new UserNotification
+                {
+                    User = attendee,
+                    Notification = notification
+                };
+
+                _dbContext.UserNotifications.Add(userNotification);
+            }
+
             _dbContext.Gigs.Update(gig);
             _dbContext.SaveChanges();
 
