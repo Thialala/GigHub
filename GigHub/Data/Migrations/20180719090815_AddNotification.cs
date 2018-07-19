@@ -36,7 +36,6 @@ namespace GigHub.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true),
                     NotificationId = table.Column<int>(nullable: false),
                     IsRead = table.Column<bool>(nullable: false)
                 },
@@ -44,17 +43,17 @@ namespace GigHub.Data.Migrations
                 {
                     table.PrimaryKey("PK_UserNotifications", x => new { x.NotificationId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_UserNotifications_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_UserNotifications_Notifications_NotificationId",
                         column: x => x.NotificationId,
                         principalTable: "Notifications",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserNotifications_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -63,9 +62,9 @@ namespace GigHub.Data.Migrations
                 column: "GigId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserNotifications_ApplicationUserId",
+                name: "IX_UserNotifications_UserId",
                 table: "UserNotifications",
-                column: "ApplicationUserId");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

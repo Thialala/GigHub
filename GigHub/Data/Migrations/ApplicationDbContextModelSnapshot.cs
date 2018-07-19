@@ -171,13 +171,11 @@ namespace GigHub.Data.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<bool>("IsRead");
 
                     b.HasKey("NotificationId", "UserId");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserNotifications");
                 });
@@ -345,14 +343,15 @@ namespace GigHub.Data.Migrations
 
             modelBuilder.Entity("GigHub.Models.UserNotification", b =>
                 {
-                    b.HasOne("GigHub.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("GigHub.Models.Notification", "Notification")
                         .WithMany()
                         .HasForeignKey("NotificationId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("GigHub.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

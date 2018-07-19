@@ -9,6 +9,7 @@ namespace GigHub.Data.Configuration
         public void Configure(EntityTypeBuilder<UserNotification> builder)
         {
             builder.HasKey(un => new { un.NotificationId, un.UserId });
+            builder.HasOne(un => un.User).WithMany().OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
