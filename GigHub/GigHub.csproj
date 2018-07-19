@@ -33,6 +33,8 @@
     <Compile Remove="Data\Migrations\20180713101427_AddAttendance.Designer.cs" />
     <Compile Remove="Data\Migrations\20180713101604_AddAttendance.cs" />
     <Compile Remove="Data\Migrations\20180713101604_AddAttendance.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180719122354_test.cs" />
+    <Compile Remove="Data\Migrations\20180719122354_test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

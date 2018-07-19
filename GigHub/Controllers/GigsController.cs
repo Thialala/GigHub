@@ -51,13 +51,7 @@ namespace GigHub.Controllers
 
             foreach (var attendee in attendees)
             {
-                var userNotification = new UserNotification
-                {
-                    User = attendee,
-                    Notification = notification
-                };
-
-                _dbContext.UserNotifications.Add(userNotification);
+                attendee.Notify(notification);
             }
 
             _dbContext.Gigs.Update(gig);
