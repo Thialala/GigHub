@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GigHub.Models
 {
@@ -19,5 +20,7 @@ namespace GigHub.Models
         public Genre Genre { get; set; }
 
         public bool IsCanceled { get; set; }
+
+        public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
     }
 }

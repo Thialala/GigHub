@@ -11,7 +11,7 @@ namespace GigHub.Data.Configuration
             builder.HasKey(a => new { a.GigId, a.AttendeeId });
             builder.Property(a => a.AttendeeId).HasMaxLength(450);
             builder.HasOne(a => a.Gig)
-                   .WithMany()
+                   .WithMany(g => g.Attendances)
                    .OnDelete(DeleteBehavior.Restrict);
         }
     }

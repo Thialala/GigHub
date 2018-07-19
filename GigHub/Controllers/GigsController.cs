@@ -5,6 +5,7 @@ using GigHub.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GigHub.Controllers
 {
@@ -27,8 +28,8 @@ namespace GigHub.Controllers
         {
             var userId = _userManager.GetUserId(User);
             var gig = _dbContext.Gigs
-                .SingleOrDefault(g =>
-                g.Id == gigId && g.ArtistId == userId && g.DateTime > DateTime.Now);
+                                .Include(g => g.Attendances.Select(a => a.Attendee))
+                                .SingleOrDefault(g => g.Id == gigId && g.ArtistId == userId && g.DateTime > DateTime.Now);
 
             if (gig == null)
             {
@@ -44,12 +45,7 @@ namespace GigHub.Controllers
                 NotificationType = NotificationType.GigCanceled
             };
 
-            var attendees = _dbContext.Attendances
-                                      .Where(a => a.GigId == gigId)
-                                      .Select(a => a.Attendee)
-                                      .ToList();
-
-            foreach (var attendee in attendees)
+            foreach (var attendee in gig.Attendances.Select(a => a.Attendee))
             {
                 attendee.Notify(notification);
             }
