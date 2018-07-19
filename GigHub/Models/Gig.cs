@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GigHub.Models
 {
@@ -22,5 +23,17 @@ namespace GigHub.Models
         public bool IsCanceled { get; set; }
 
         public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
+
+        public void Cancel()
+        {
+            IsCanceled = true;
+
+            var notification = new Notification(NotificationType.GigCanceled, this);
+
+            foreach (var attendee in Attendances.Select(a => a.Attendee))
+            {
+                attendee.Notify(notification);
+            }
+        }
     }
 }
