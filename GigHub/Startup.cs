@@ -1,4 +1,7 @@
+using AutoMapper;
+using GigHub.Controllers;
 using GigHub.Data;
+using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -61,6 +64,14 @@ namespace GigHub
             app.UseAuthentication();
 
             app.UseMvc();
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<GenreDto, Genre>();
+                cfg.CreateMap<UserDto, ApplicationUser>();
+                cfg.CreateMap<GigDto, Gig>();
+                cfg.CreateMap<NotificationDto, Notification>();
+            });
         }
     }
 }

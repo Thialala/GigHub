@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using GigHub.Data;
+using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

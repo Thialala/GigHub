@@ -1,4 +1,4 @@
-﻿namespace GigHub.Controllers
+﻿namespace GigHub.Dtos
 {
     public class AttendanceDto
     {

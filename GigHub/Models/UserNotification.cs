@@ -12,6 +12,8 @@ namespace GigHub.Models
 
         public bool IsRead { get; set; }
 
+        private UserNotification() { }
+
         public UserNotification(ApplicationUser user, Notification notification)
         {
             User = user ?? throw new ArgumentNullException(nameof(user));

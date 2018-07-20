@@ -16,6 +16,9 @@ namespace GigHub.Models
 
         public Gig Gig { get; private set; }
 
+        private Notification()
+        { }
+
         private Notification(NotificationType notificationType, Gig gig)
         {
             Gig = gig ?? throw new ArgumentNullException(nameof(gig));
