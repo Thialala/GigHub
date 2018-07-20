@@ -76,9 +76,7 @@ namespace GigHub.Pages.Gigs
                 return NotFound();
             }
 
-            gig.Venue = GigViewModel.Venue;
-            gig.DateTime = GigViewModel.GetDateTime();
-            gig.GenreId = GigViewModel.Genre;
+            gig.Update(GigViewModel.Venue, GigViewModel.GetDateTime(), GigViewModel.Genre);
 
             _context.Gigs.Update(gig);
 

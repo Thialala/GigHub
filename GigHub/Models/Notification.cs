@@ -16,11 +16,25 @@ namespace GigHub.Models
 
         public Gig Gig { get; private set; }
 
-        public Notification(NotificationType notificationType, Gig gig)
+        private Notification(NotificationType notificationType, Gig gig)
         {
             Gig = gig ?? throw new ArgumentNullException(nameof(gig));
             NotificationType = notificationType;
             DateTime = DateTime.Now;
+        }
+
+        public static Notification GigCanceled(Gig canceledGig)
+        {
+            return new Notification(NotificationType.GigCanceled, canceledGig);
+        }
+
+        public static Notification GigUpdated(string originalVenue, DateTime originalDateTime, Gig updatedGig)
+        {
+            var result = new Notification(NotificationType.GigCanceled, updatedGig);
+            result.OriginalVenue = originalVenue;
+            result.OriginalDateTime = originalDateTime;
+
+            return result;
         }
     }
 }
