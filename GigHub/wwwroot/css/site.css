@@ -67,6 +67,17 @@ body {
         font-weight: bold;
     }
 
+    .navbar-inverse .notifications {
+        position: relative;
+    }
+
+        .navbar-inverse .notifications .badge {
+            position: absolute;
+            top: 8px;
+            right: -1px;
+            background: #a80a0a;
+        }
+
 body {
     font-size: 17px;
 }
